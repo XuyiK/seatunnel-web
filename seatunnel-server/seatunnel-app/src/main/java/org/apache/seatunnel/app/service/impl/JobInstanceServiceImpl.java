@@ -350,7 +350,7 @@ public class JobInstanceServiceImpl extends SeatunnelBaseServiceImpl
             @NonNull String jobEngineId,
             JobResult jobResult) {
         funcPermissionCheck(SeatunnelFuncPermissionKeyConstant.JOB_EXECUTOR_COMPLETE, userId);
-        JobInstance jobInstance = jobInstanceDao.getJobInstanceMapper().selectById(jobInstanceId);
+        JobInstance jobInstance = jobInstanceDao.getJobInstance(jobInstanceId);
         jobMetricsService.syncJobDataToDb(jobInstance, userId, jobEngineId);
         jobInstance.setJobStatus(jobResult.getStatus());
         jobInstance.setJobEngineId(jobEngineId);
