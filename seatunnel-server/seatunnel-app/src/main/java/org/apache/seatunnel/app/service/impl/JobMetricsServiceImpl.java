@@ -194,7 +194,7 @@ public class JobMetricsServiceImpl extends SeatunnelBaseServiceImpl implements I
                         // Set the job status of jobInstance and jobMetrics in the database to
                         // finished
                         jobInstance.setJobStatus(JobStatus.FINISHED);
-                        jobInstanceDao.getJobInstanceMapper().updateById(jobInstance);
+                        jobInstanceDao.update(jobInstance);
                     }
                 }
             } else if (jobInstance.getJobStatus() == JobStatus.FINISHED
